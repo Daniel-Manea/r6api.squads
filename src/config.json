@@ -1,0 +1,25 @@
+    {
+        "Prod_Url": {
+            "Url": "https://prod.datadev.ubisoft.com",
+            "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0",
+            "Accept": "*/*",
+            "UbiSessionId": "07b5817b-417a-448a-9825-7bf17c8988a3",
+            "UbiAppId": "3587dcbb-7f81-457c-9781-0e3f29f6f56a",
+            "Host": "prod.datadev.ubisoft.com",
+            "spaceId": "5172a557-50b5-4665-b7db-e3f2e8c5041d"
+        },
+        "Public_Url": {
+            "Url": "https://public-ubiservices.ubi.com",
+            "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0",
+            "Accept": "*/*",
+            "UbiSessionId": "07b5817b-417a-448a-9825-7bf17c8988a3",
+            "UbiAppId": "3587dcbb-7f81-457c-9781-0e3f29f6f56a",
+            "Host": "prod.datadev.ubisoft.com",
+            "spaceId": "5172a557-50b5-4665-b7db-e3f2e8c5041d"
+        },
+        "Platforms": {
+            "uplay": "PC",
+            "psn": "PSN",
+            "xbl": "XBOX"
+        }
+    }
