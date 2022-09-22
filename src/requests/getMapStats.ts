@@ -1,29 +1,26 @@
 import axios from "axios";
 import { getAuth } from "./getAuth";
 import Expiration from "../utils/expiration";
-import { findByUsername } from "./findByUsername";
-const { Prod_Url, Platforms } = require("../config.json");
-
-
+const { Ubi_URLS, Platforms, Ubi_HEADERS } = require("../config.json");
 
 export async function getMapStats(username: string, platform: string) {
+    const { TOKEN, id } = await getAuth(username, platform);
     const AxiosConfig = {
-        "Authorization": `ubi_v1 t=${await getAuth()}`,
-        "Accept": Prod_Url.Accept,
-        "User-Agent": Prod_Url.UserAgent,
-        "Ubi-AppId": Prod_Url.UbiAppId,
-        "Ubi-SessionId": Prod_Url.UbiSessionId,
+        "Authorization": `ubi_v1 t=${TOKEN}`,
+        "Accept": Ubi_HEADERS.Accept,
+        "User-Agent": Ubi_HEADERS.UserAgent,
+        "Ubi-AppId": Ubi_HEADERS.UbiAppId,
+        "Ubi-SessionId": Ubi_HEADERS.UbiSessionId,
         "expiration": `${await Expiration()}`,
-        "Host": Prod_Url.Host,
+        "Host": Ubi_HEADERS.Host_Prod,
+        "Connection": "keep-alive",
     }
 
-    const { data: user } = await findByUsername(username, platform);
-
-    const id = user.profiles[0].idOnPlatform;
-
-    const request = await axios.get(`${Prod_Url.Url}/v1/profiles/${id}/playerstats?spaceId=${Prod_Url.spaceId}&view=seasonal&aggregation=maps&gameMode=all,ranked,casual,unranked&platform=${Platforms[platform]}&teamRole=all,Attacker,Defender&seasons=Y7S3`, {
+    const request = await axios.get(`${Ubi_URLS.Prod}/v1/profiles/${id}/playerstats?spaceId=${Ubi_HEADERS.spaceId}&view=seasonal&aggregation=maps&gameMode=all,ranked,casual,unranked&platform=${Platforms[platform]}&teamRole=all,Attacker,Defender&seasons=Y7S3`, {
         headers: AxiosConfig
-    })
+    }).then(res => {
+        return res.data;
+    }).catch(err => console.log(err));
 
-    return request.data
+    return request;
 }
