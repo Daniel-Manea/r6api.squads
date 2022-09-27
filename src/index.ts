@@ -5,17 +5,21 @@ import { Platforms } from './config.json';
 const Module = async () => {
 
     const platform = 'uplay';
-    const username = 'Robers.';
+    const username = 'squads.es';
 
     const MapStats = await getMapStats(username, platform);
 
-    console.log(MapStats);
+    const RankedAttack = MapStats.platforms[Platforms[platform]].gameModes.ranked.teamRoles.all;
 
-    const RankedAttack = MapStats.platforms[Platforms[platform]].gameModes.ranked.teamRoles.Attacker;
-
+    let mostKillsMap = [];
     for (let i = 0; i < RankedAttack.length; i++) {
-        console.log(RankedAttack[i].statsDetail, Math.round(RankedAttack[i].roundsPlayed / RankedAttack[i].roundsWithKOST.value));
+
+        mostKillsMap.push({ map: RankedAttack[i].statsDetail, kd: RankedAttack[i].killDeathRatio.value });
+
     }
+
+    console.log(...mostKillsMap)
+
 }
 
 Module();

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Expiration from "../utils/expiration";
 const { Ubi_URLS } = require("../config.json");
+const NodeCache = require("node-cache");
 
 export async function getAuth(username: string, platform: string) {
 
@@ -19,6 +20,16 @@ export async function getAuth(username: string, platform: string) {
     })
 
     const TOKEN = AuthToken.data.ticket;
+
+
+    const cache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
+
+    cache.set("token", TOKEN, 400);
+
+    cache.on("expired", function (key: any, value: any) {
+        console.log("expired")
+    });
+
 
     const AxiosUserConfig = {
         "Authorization": `ubi_v1 t=${TOKEN}`,

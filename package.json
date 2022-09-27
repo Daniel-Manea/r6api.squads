@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "google-translate-api-x": "^10.4.1",
+    "node-cache": "^5.1.2",
     "r6api.js": "^4.4.1",
     "ts-node": "^10.9.1"
   },
