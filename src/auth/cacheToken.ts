@@ -18,8 +18,8 @@ export const Token = async function () {
         return token;
     }
 
-    let AuthToken = cache.get("token");
-    let Expiration = cache.getTtl("token");
+    let AuthToken: string | undefined = cache.get("token");
+    let Expiration: number | undefined = cache.getTtl("token");
 
     if (!AuthToken || AuthToken == undefined) {
         console.log("No token found.")

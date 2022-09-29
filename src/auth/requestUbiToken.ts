@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Ubi_URLS } from "../config.json"
 
-const requestUbiToken = async () => {
+const requestUbiToken: () => Promise<string> = async () => {
     const AxiosConfig = {
         "Authorization": "Basic a2lnYXlvczk3NEBvdG9kaXIuY29tOkRpc2NvcmQxMjM=",
         "Content-Type": "application/json",
