@@ -1,1 +1,2 @@
-# rainbow-six-api
+# r6api.squads
+
