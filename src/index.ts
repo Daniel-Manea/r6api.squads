@@ -9,6 +9,7 @@ http.createServer(function (request: any, response: any) {
 }).listen(8081);
 
 export default {
+    getMaps,
     getRecap
 }
 
