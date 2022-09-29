@@ -5,3 +5,4 @@ declare const _default: {
     getRecap: typeof getRecap;
 };
 export default _default;
+//# sourceMappingURL=index.d.ts.map

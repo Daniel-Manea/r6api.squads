@@ -1,5 +1,6 @@
 {
     "Ubi_HEADERS": {
+        "Authorization": "Basic a2lnYXlvczk3NEBvdG9kaXIuY29tOkRpc2NvcmQxMjM=",
         "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0",
         "Accept": "*/*",
         "UbiSessionId": "07b5817b-417a-448a-9825-7bf17c8988a3",

@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Ubi_URLS } from "../config.json"
+import { Ubi_URLS, Ubi_HEADERS } from "../config.json"
 
 const requestUbiToken: () => Promise<string> = async () => {
     const AxiosConfig = {
-        "Authorization": "Basic a2lnYXlvczk3NEBvdG9kaXIuY29tOkRpc2NvcmQxMjM=",
+        "Authorization": `${Ubi_HEADERS.Authorization}`,
         "Content-Type": "application/json",
         "Connection": "keep-alive",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0",
@@ -19,5 +19,4 @@ const requestUbiToken: () => Promise<string> = async () => {
 
     return AuthToken.data.ticket;
 }
-
 export default requestUbiToken;

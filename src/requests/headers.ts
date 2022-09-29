@@ -17,7 +17,6 @@ export default async function () {
         'Host': Ubi_HEADERS.Host_Prod,
         'Connection': 'keep-alive',
     }
-
     const Public = {
         'Authorization': `ubi_v1 t=${token.AuthToken}`,
         'Accept': Ubi_HEADERS.Accept,
@@ -28,7 +27,6 @@ export default async function () {
         'Host': Ubi_HEADERS.Host_Public,
         'Connection': 'keep-alive',
     }
-
     return { Prod, Public };
 
 }

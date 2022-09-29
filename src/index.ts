@@ -5,13 +5,3 @@ export default {
     getMaps,
     getRecap
 }
-
-
-
-
-
-
-
-
-
-

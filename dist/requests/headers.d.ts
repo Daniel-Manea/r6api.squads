@@ -20,3 +20,4 @@ export default function (): Promise<{
         Connection: string;
     };
 }>;
+//# sourceMappingURL=headers.d.ts.map
