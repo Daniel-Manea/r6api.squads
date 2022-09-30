@@ -1,5 +1,5 @@
 {
-  "name": "squads.es.r6api",
+  "name": "r6api.squads",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,20 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Daniel-Manea/rainbow-six-api.git"
+    "url": "git+https://github.com/Daniel-Manea/r6api.squads.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Daniel-Manea/rainbow-six-api/issues"
+    "url": "https://github.com/Daniel-Manea/r6api.squads/issues"
   },
-  "homepage": "https://github.com/Daniel-Manea/rainbow-six-api#readme",
+  "homepage": "https://github.com/Daniel-Manea/r6api.squads#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "google-translate-api-x": "^10.4.1",
-    "http": "^0.0.1-security",
     "node-cache": "^5.1.2",
-    "r6api.js": "^4.4.1",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
