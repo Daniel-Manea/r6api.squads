@@ -2,6 +2,7 @@ import NodeCache from "node-cache";
 import requestUbiToken from "./requestUbiToken";
 
 export const Token = async function () {
+
     const cache = new NodeCache({ stdTTL: 3598, checkperiod: 3598 });
 
     cache.on("expired", async function () {

@@ -1,5 +1,5 @@
 import { Token } from '../auth/cacheToken';
-import { Ubi_HEADERS } from '../config.json';
+import { Ubi_HEADERS } from './headers.config.json';
 
 export default async function () {
 
@@ -28,5 +28,4 @@ export default async function () {
         'Connection': 'keep-alive',
     }
     return { Prod, Public };
-
 }
