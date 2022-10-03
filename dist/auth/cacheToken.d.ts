@@ -1,5 +1,5 @@
 export declare const Token: () => Promise<{
-    AuthToken: string;
+    AuthToken: unknown;
     Expiration: number | undefined;
 }>;
 //# sourceMappingURL=cacheToken.d.ts.map
