@@ -4,8 +4,8 @@ exports.Token = void 0;
 const tslib_1 = require("tslib");
 const node_cache_1 = tslib_1.__importDefault(require("node-cache"));
 const requestUbiToken_1 = tslib_1.__importDefault(require("./requestUbiToken"));
+const cache = new node_cache_1.default({ stdTTL: 3598, checkperiod: 3598 });
 const Token = async function () {
-    const cache = new node_cache_1.default({ stdTTL: 3598, checkperiod: 3598 });
     cache.on("expired", async function () {
         renewTokenCache();
     });
@@ -13,12 +13,15 @@ const Token = async function () {
         console.log("Caching a new token...");
         const token = await (0, requestUbiToken_1.default)();
         cache.set("token", token, 3598);
-        console.log("New token cached!");
-        console.log(token);
         return token;
     };
-    let AuthToken = cache.get("token");
-    let Expiration = cache.getTtl("token");
+    let AuthToken;
+    let Expiration;
+    cache.on("set", async function (key, value) {
+        console.log("New token cached!");
+        AuthToken = value;
+        Expiration = cache.getTtl(key);
+    });
     if (!AuthToken || AuthToken == undefined) {
         console.log("No token found.");
         AuthToken = await renewTokenCache();
