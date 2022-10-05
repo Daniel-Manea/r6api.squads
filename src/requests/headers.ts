@@ -8,7 +8,7 @@ export default async function () {
     const expiration = new Date(token?.Expiration!).toISOString()
 
     const Prod = {
-        'Authorization': `ubi_v1 t=${token.AuthToken}`,
+        'Authorization': `ubi_v1 t=${token?.AuthToken}`,
         'Accept': Ubi_HEADERS.Accept,
         'User-Agent': Ubi_HEADERS.UserAgent,
         'Ubi-AppId': Ubi_HEADERS.UbiAppId,
@@ -18,7 +18,7 @@ export default async function () {
         'Connection': 'keep-alive',
     }
     const Public = {
-        'Authorization': `ubi_v1 t=${token.AuthToken}`,
+        'Authorization': `ubi_v1 t=${token?.AuthToken}`,
         'Accept': Ubi_HEADERS.Accept,
         'User-Agent': Ubi_HEADERS.UserAgent,
         'Ubi-AppId': Ubi_HEADERS.UbiAppId,

@@ -6,7 +6,7 @@ async function default_1() {
     const token = await (0, cacheToken_1.Token)();
     const expiration = new Date(token?.Expiration).toISOString();
     const Prod = {
-        'Authorization': `ubi_v1 t=${token.AuthToken}`,
+        'Authorization': `ubi_v1 t=${token?.AuthToken}`,
         'Accept': headers_config_json_1.Ubi_HEADERS.Accept,
         'User-Agent': headers_config_json_1.Ubi_HEADERS.UserAgent,
         'Ubi-AppId': headers_config_json_1.Ubi_HEADERS.UbiAppId,
@@ -16,7 +16,7 @@ async function default_1() {
         'Connection': 'keep-alive',
     };
     const Public = {
-        'Authorization': `ubi_v1 t=${token.AuthToken}`,
+        'Authorization': `ubi_v1 t=${token?.AuthToken}`,
         'Accept': headers_config_json_1.Ubi_HEADERS.Accept,
         'User-Agent': headers_config_json_1.Ubi_HEADERS.UserAgent,
         'Ubi-AppId': headers_config_json_1.Ubi_HEADERS.UbiAppId,

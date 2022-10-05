@@ -9,25 +9,25 @@ export const Token = async function () {
     });
 
     let AuthToken = cache.get("token");
-
-    let Expiration;
+    let Expiration = cache.getTtl("token");
 
     const renewTokenCache = async () => {
         console.log("Caching a new token...")
         const token = await requestUbiToken();
         cache.set("token", token, 3598);
         AuthToken = token;
-        Expiration = cache?.getTtl("token")!;
-        return { AuthToken, Expiration };
+        Expiration = cache.getTtl("token");
     }
 
     if (!AuthToken || AuthToken == undefined) {
         console.log("No token found.")
-        const token = await renewTokenCache();
-        AuthToken = token.AuthToken;
-        Expiration = token.Expiration;
+        renewTokenCache();
+
+    } else {
+        console.log("Token found.")
     }
 
     return { AuthToken, Expiration };
+
 }
 
